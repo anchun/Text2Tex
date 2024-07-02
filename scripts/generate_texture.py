@@ -134,7 +134,7 @@ def init_args():
     parser.add_argument("--no_update", action="store_true", help="do NOT apply update")
 
     # device parameters
-    parser.add_argument("--device", type=str, choices=["a6000", "2080"], default="a6000")
+    parser.add_argument("--device", type=str, choices=["a6000", "4090"], default="4090")
 
     # camera parameters NOTE need careful tuning!!!
     parser.add_argument("--test_camera", action="store_true")
@@ -153,10 +153,10 @@ def init_args():
         setattr(args, "image_size", 768)
         setattr(args, "uv_size", 3000)
     else:
-        setattr(args, "render_simple_factor", 4)
+        setattr(args, "render_simple_factor", 8)
         setattr(args, "fragment_k", 1)
         setattr(args, "image_size", 768)
-        setattr(args, "uv_size", 1000)
+        setattr(args, "uv_size", 2000)
 
     return args
 
